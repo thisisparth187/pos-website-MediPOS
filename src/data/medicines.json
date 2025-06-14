@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Paracetamol",
+        "price": 20,
+        "stock": 50,
+        "category": "Capsule"
+    },
+    {
+        "name": "Amoxicillin",
+        "price": 120,
+        "stock": 25,
+        "category": "Capsule"
+    },
+    {
+        "name": "Ibuprofen",
+        "price": 35,
+        "stock": 0,
+        "category": "Tablet"
+    },
+    {
+        "name": "Aspirin",
+        "price": 15,
+        "stock": 100,
+        "category": "Tablet"
+    },
+    {
+        "name": "Omeprazole",
+        "price": 50,
+        "stock": 30,
+        "category": "Syrup"
+    }
+]
