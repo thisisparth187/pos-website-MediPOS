@@ -17,7 +17,7 @@ const Categories = () => {
                 <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
                 <div className='self-end'>
-                    <button className='px-20 py-2 bg-gray-900 rounded-md text-white font-semibold hover:bg-blue-400 duration-300'>
+                    <button className='px-20 py-2 bg-[#7B4019] rounded-md text-white font-semibold hover:bg-blue-400 duration-300'>
                         Add New
                     </button>
                 </div>

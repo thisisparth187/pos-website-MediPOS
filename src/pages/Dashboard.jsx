@@ -4,6 +4,7 @@ import Card from '../components/shared/Card'
 import SearchBar from '../components/shared/SearchBar'
 import CategoryFilter from '../components/shared/CategoryFilter'
 import backData from '../data/backData.json'
+import Bill from '../components/shared/Bill'
 
 const Dashboard = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -13,7 +14,7 @@ const Dashboard = () => {
 
 
 
-    const filteredMedicines = data.filter((med) =>
+    const filteredItems = data.filter((med) =>
         (selectedCategory === 'All' || med.category === selectedCategory) &&
         med.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -21,7 +22,7 @@ const Dashboard = () => {
 
 
     return (
-        <div className='flex flex-wrap'>
+        <div className='flex flex-wrap justify-between'>
             <Header />
 
             {/*  */}
@@ -37,10 +38,15 @@ const Dashboard = () => {
                         />
                     </div>
                 </div>
+
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-                    {filteredMedicines.map((med, index) => (
+                    {filteredItems.map((med, index) => (
                         <Card key={index} {...med} />
                     ))}
+                </div>
+
+                <div className=''>
+                    <Bill />
                 </div>
             </div>
 

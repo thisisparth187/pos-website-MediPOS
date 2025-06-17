@@ -22,13 +22,13 @@ const Table = () => {
     return (
         <div className="p-4">
             <table className="w-280 border border-collapse border-gray-400">
-                <thead className="bg-gray-900 text-gray-200">
+                <thead className="bg-[#7B4019] text-gray-200">
                     <tr>
-                        <th className="border-2 border-gray-900 px-4 py-2">Sr. No.</th>
-                        <th className="border-2 border-gray-900 px-4 py-2">Name</th>
-                        <th className="border-2 border-gray-900 px-4 py-2">Price</th>
-                        <th className="border-2 border-gray-900 px-4 py-2">Stock</th>
-                        <th className="border-2 border-gray-900 px-4 py-2">Action</th>
+                        <th className="border-2 border-[#7B4019] px-4 py-2">Sr. No.</th>
+                        <th className="border-2 border-[#7B4019] px-4 py-2">Name</th>
+                        <th className="border-2 border-[#7B4019] px-4 py-2">Price</th>
+                        <th className="border-2 border-[#7B4019] px-4 py-2">Stock</th>
+                        <th className="border-2 border-[#7B4019] px-4 py-2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,11 +40,11 @@ const Table = () => {
                             <td className="border-2 px-4 py-2 text-center">{val.stock}</td>
                             <td className="border-2 px-4 py-2 text-center">
                                 <button
-                                    className='px-2 py-2 mr-2 bg-gray-900 rounded-md text-white font-semibold hover:bg-blue-400 duration-300'
+                                    className='px-2 py-2 mr-2 bg-[#7B4019] rounded-md text-white font-semibold hover:bg-blue-400 duration-300'
                                     onClick={() => handleEdit(val.id)}
                                 >Edit</button>
                                 <button
-                                    className='px-2 py-2 bg-gray-900 rounded-md text-white font-semibold hover:bg-blue-400 duration-300'
+                                    className='px-2 py-2 bg-[#7B4019] rounded-md text-white font-semibold hover:bg-blue-400 duration-300'
                                     onClick={() => handleDelete(val.id)}
                                 >Delete</button>
                             </td>
