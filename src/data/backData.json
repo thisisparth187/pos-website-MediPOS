@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Burger",
+        "price": 249,
+        "stock": 50,
+        "category": "Main Course",
+        "image": ". /assets/images/burger.png"
+    },
+    {
+        "id": 2,
+        "name": "French Fries",
+        "price": 120,
+        "stock": 25,
+        "category": "Starter",
+        "image": "fries.png"
+    },
+    {
+        "id": 3,
+        "name": "Monchow Soup",
+        "price": 35,
+        "stock": 0,
+        "category": "Soups",
+        "image": "monsoup.png"
+    },
+    {
+        "id": 4,
+        "name": "Gulab Jamun",
+        "price": 15,
+        "stock": 100,
+        "category": "Desert",
+        "image": "jamun.png"
+    },
+    {
+        "id": 5,
+        "name": "Redbull",
+        "price": 50,
+        "stock": 30,
+        "category": "Drinks",
+        "image": "redbull.png"
+    }
+]

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const categories = ['All', 'Capsule', 'Tablet', 'Syrup'];
+const categories = ['All', 'Starter', 'Main Course', 'Soups', 'Desert', 'Drinks'];
 
 const CategoriesFilter = ({ selectedCategory, onSelectCategory }) => {
     return (

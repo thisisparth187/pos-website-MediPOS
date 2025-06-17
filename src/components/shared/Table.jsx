@@ -1,13 +1,30 @@
-import React, { useState } from 'react'
-import medicineData from '../../data/medicines.json'
-
+import React, { useEffect, useState } from 'react'
+import backData from '../../data/backData.json'
 const Table = () => {
-    // const medicines = medicineData
+
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        setData(backData)
+    }, [])
+
+    const handleEdit = (id) => {
+        alert(id);
+    }
+    const handleDelete = (id) => {
+        if (id > 0) {
+            if (window.confirm("Are you sure?")) {
+                const dt = data.filter(item => item.id !== id);
+                setData(dt);
+            }
+        }
+    }
     return (
         <div className="p-4">
             <table className="w-280 border border-collapse border-gray-400">
                 <thead className="bg-gray-900 text-gray-200">
                     <tr>
+                        <th className="border-2 border-gray-900 px-4 py-2">Sr. No.</th>
                         <th className="border-2 border-gray-900 px-4 py-2">Name</th>
                         <th className="border-2 border-gray-900 px-4 py-2">Price</th>
                         <th className="border-2 border-gray-900 px-4 py-2">Stock</th>
@@ -15,12 +32,22 @@ const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {medicineData.map((val, i) => (
+                    {data.map((val, i) => (
                         <tr key={i}>
-                            <td className="border-2 px-4 py-2">{val.name}</td>
-                            <td className="border-2 px-4 py-2">{val.price}</td>
-                            <td className="border-2 px-4 py-2">{val.stock}</td>
-                            <td className="border-2 px-4 py-2"><i class=" bi bi-pencil-fill mr-4 border-2 p-1 rounded-md bg-gray-900 text-amber-50 hover:bg-amber-50 hover:text-gray-900 duration-200"></i><i class="bi bi-trash-fill p-1 border-2 rounded-md bg-gray-900 text-amber-50 hover:bg-amber-50 hover:text-gray-900 duration-200"></i></td>
+                            <td className="border-2 px-4 py-2 text-center">{val.id}</td>
+                            <td className="border-2 px-4 py-2 text-center">{val.name}</td>
+                            <td className="border-2 px-4 py-2 text-center">{val.price}</td>
+                            <td className="border-2 px-4 py-2 text-center">{val.stock}</td>
+                            <td className="border-2 px-4 py-2 text-center">
+                                <button
+                                    className='px-2 py-2 mr-2 bg-gray-900 rounded-md text-white font-semibold hover:bg-blue-400 duration-300'
+                                    onClick={() => handleEdit(val.id)}
+                                >Edit</button>
+                                <button
+                                    className='px-2 py-2 bg-gray-900 rounded-md text-white font-semibold hover:bg-blue-400 duration-300'
+                                    onClick={() => handleDelete(val.id)}
+                                >Delete</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

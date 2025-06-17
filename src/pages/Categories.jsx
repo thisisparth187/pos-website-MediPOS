@@ -4,7 +4,10 @@ import Table from '../components/shared/Table'
 import SearchBar from '../components/shared/SearchBar'
 
 const Categories = () => {
+
     const [searchTerm, setSearchTerm] = useState('');
+
+
     return (
         <div className='flex flex-wrap'>
             <Header />

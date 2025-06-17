@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../components/shared/Sidebar'
-import MediCard from '../components/shared/MediCard'
+import Card from '../components/shared/Card'
 import SearchBar from '../components/shared/SearchBar'
 import CategoryFilter from '../components/shared/CategoryFilter'
-import medicineData from '../data/medicines.json'
+import backData from '../data/backData.json'
 
 const Dashboard = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All')
 
-    const medicines = medicineData
+    const data = backData
 
 
 
-    const filteredMedicines = medicines.filter((med) =>
+    const filteredMedicines = data.filter((med) =>
         (selectedCategory === 'All' || med.category === selectedCategory) &&
         med.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -39,7 +39,7 @@ const Dashboard = () => {
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
                     {filteredMedicines.map((med, index) => (
-                        <MediCard key={index} {...med} />
+                        <Card key={index} {...med} />
                     ))}
                 </div>
             </div>
