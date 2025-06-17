@@ -12,6 +12,7 @@ const Bill = ({ selectedItems = [] }) => {
     };
 
     const updateQuantity = (index, newQuantity) => {
+        if (newQuantity === 0) removeItem(index);
         if (newQuantity < 1) return;
         const newItems = [...items];
         newItems[index].quantity = newQuantity;
@@ -42,12 +43,12 @@ const Bill = ({ selectedItems = [] }) => {
                             <td className='px-6 py-2'>{item.name}</td>
                             <td className='px-2 py-1'>
                                 <div className="flex items-center gap-2">
-                                    <button 
+                                    <button
                                         onClick={() => updateQuantity(index, (item.quantity || 1) - 1)}
                                         className="px-2 py-1 bg-[#7B4019] text-white rounded"
                                     >-</button>
                                     <span>{item.quantity || 1}</span>
-                                    <button 
+                                    <button
                                         onClick={() => updateQuantity(index, (item.quantity || 1) + 1)}
                                         className="px-2 py-1 bg-[#7B4019] text-white rounded"
                                     >+</button>
@@ -56,9 +57,9 @@ const Bill = ({ selectedItems = [] }) => {
                             <td className='px-2 py-1'>₹{item.price}</td>
                             <td className='px-2 py-1'>₹{item.price * (item.quantity || 1)}</td>
                             <td className='px-2 py-1'>
-                                <button 
+                                <button
                                     onClick={() => removeItem(index)}
-                                    className="px-2 py-1 bg-red-500 text-white rounded"
+                                    className="px-2 py-1 bg-[#7B4019] text-white rounded"
                                 >
                                     Remove
                                 </button>
