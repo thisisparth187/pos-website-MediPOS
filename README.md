@@ -1,149 +1,79 @@
-# MERN Stack Point of Sale (POS) Application
+# Vite + React App
 
-This project is a Point of Sale application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) and Vite for the frontend.
+This project was bootstrapped with Vite and uses React.
 
-## Project Structure
+## Getting Started
 
--   `/`: Contains frontend React application files (managed by Vite).
--   `/public`: Public assets for the frontend.
--   `/src`: Frontend source code (React components, pages, etc.).
-    -   `/src/components`: Shared UI components.
-    -   `/src/data`: Contains static data, including `backData.json` used for seeding.
-    -   `/src/pages`: Main page components for the React app.
--   `/server`: Contains the backend Node.js and Express.js application.
-    -   `/server/models`: Mongoose schemas and models.
-    -   `/server/routes`: API route definitions.
-    -   `/server/.env`: Environment variables (needs to be created).
-    -   `/server/server.js`: Main backend server file.
-    -   `/server/seed.js`: Database seeding script.
-    -   `/server/package.json`: Backend dependencies and scripts.
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-## Prerequisites
+### Prerequisites
 
--   Node.js (v14 or later recommended)
--   npm (usually comes with Node.js)
--   MongoDB (either a local instance or a cloud-hosted solution like MongoDB Atlas)
+- Node.js (LTS version recommended)
+- npm (comes with Node.js) or yarn
 
-## Frontend Setup
+### Installing
 
-The frontend is a React application built with Vite.
-
-1.  **Navigate to the project root directory:**
+1.  **Clone the repository (if applicable):**
     ```bash
-    cd <project-root>
+    git clone <repository-url>
+    cd <project-directory>
     ```
 
 2.  **Install dependencies:**
+    Using npm:
     ```bash
     npm install
     ```
-
-3.  **Run the frontend development server:**
+    Or using yarn:
     ```bash
-    npm run dev
-    ```
-    The application will typically be available at `http://localhost:5173` (or another port if 5173 is busy).
-
-## Backend Setup
-
-The backend is a Node.js/Express.js application that connects to a MongoDB database.
-
-1.  **Navigate to the server directory:**
-    ```bash
-    cd server
+    yarn install
     ```
 
-2.  **Install backend dependencies:**
-    ```bash
-    npm install
-    ```
+## Available Scripts
 
-3.  **Set up environment variables:**
-    Create a `.env` file in the `server` directory (`server/.env`) with the following content:
-    ```env
-    MONGODB_URI=your_mongodb_connection_string_here
-    PORT=3001 # Or any other port you prefer for the backend
-    ```
-    Replace `your_mongodb_connection_string_here` with your actual MongoDB connection string. For example:
-    -   Local MongoDB: `mongodb://localhost:27017/your_database_name`
-    -   MongoDB Atlas: `mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?retryWrites=true&w=majority`
+In the project directory, you can run:
 
-4.  **Seed the database (optional but recommended for initial setup):**
-    This script will populate the `products` collection with data from `src/data/backData.json`.
-    Ensure your MongoDB server is running and accessible before seeding.
-    ```bash
-    npm run seed
-    ```
-    You should see success messages in the console.
+### `npm run dev` or `yarn dev`
 
-5.  **Run the backend server:**
-    ```bash
-    npm start
-    ```
-    The backend server will start, typically on the port specified in your `.env` file (e.g., `http://localhost:3001`). You should see a "MongoDB connected successfully" message.
+Runs the app in development mode.
+Open [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal) to view it in the browser.
 
-## Backend API Endpoints
+The page will reload if you make edits.
+You will also see any lint errors in the console.
 
-The backend provides the following API endpoints for managing products:
+### `npm run build` or `yarn build`
 
--   **`GET /api/products`**
-    -   Description: Retrieves a list of all products.
-    -   Response: `200 OK` with an array of product objects.
-    -   Error: `500 Internal Server Error` if there's a server-side issue.
+Builds the app for production to the `dist` folder.
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
--   **`GET /api/products/:id`**
-    -   Description: Retrieves a single product by its ID.
-    -   Parameters: `id` (MongoDB ObjectId of the product).
-    -   Response: `200 OK` with the product object.
-    -   Error:
-        -   `404 Not Found` if the product with the given ID doesn't exist.
-        -   `500 Internal Server Error` for other server-side issues.
+The build is minified and the filenames include the hashes.
+Your app is ready to be deployed!
 
--   **`POST /api/products`**
-    -   Description: Creates a new product.
-    -   Request Body: JSON object representing the product. Required fields: `name`, `price`, `stock`, `category`. Optional: `image`.
-        ```json
-        {
-          "name": "New Product",
-          "price": 19.99,
-          "stock": 100,
-          "category": "Electronics",
-          "image": "url_or_path_to_image.jpg"
-        }
-        ```
-    -   Response: `201 Created` with the newly created product object.
-    -   Error:
-        -   `400 Bad Request` if required fields are missing or data is invalid.
-        -   `500 Internal Server Error` for other server-side issues.
+### `npm run preview` or `yarn preview`
 
--   **`PUT /api/products/:id`**
-    -   Description: Updates an existing product by its ID.
-    -   Parameters: `id` (MongoDB ObjectId of the product).
-    -   Request Body: JSON object with fields to update.
-        ```json
-        {
-          "name": "Updated Product Name",
-          "price": 29.99
-        }
-        ```
-    -   Response: `200 OK` with the updated product object.
-    -   Error:
-        -   `400 Bad Request` if data is invalid.
-        -   `404 Not Found` if the product with the given ID doesn't exist.
-        -   `500 Internal Server Error` for other server-side issues.
+Serves the production build locally. This is a good way to check if the production build is working correctly before deploying.
 
--   **`DELETE /api/products/:id`**
-    -   Description: Deletes a product by its ID.
-    -   Parameters: `id` (MongoDB ObjectId of the product).
-    -   Response: `200 OK` with a success message (e.g., `{ "message": "Deleted Product" }`).
-    -   Error:
-        -   `404 Not Found` if the product with the given ID doesn't exist.
-        -   `500 Internal Server Error` for other server-side issues.
+## Project Structure (Simplified)
 
-## Development Notes
+```
+.
+├── public/              # Static assets
+├── src/                 # Source files
+│   ├── components/      # Reusable components
+│   ├── assets/          # Images, fonts, etc.
+│   ├── App.jsx          # Main App component
+│   └── main.jsx         # Entry point of the application
+├── .eslintrc.cjs        # ESLint configuration
+├── .gitignore           # Git ignore file
+├── index.html           # Main HTML file
+├── package.json         # Project metadata and dependencies
+├── vite.config.js       # Vite configuration
+└── README.md            # This file
+```
 
--   The frontend application (React/Vite) runs on its own development server (e.g., `localhost:5173`).
--   The backend API server (Node/Express) runs on a separate port (e.g., `localhost:3001`).
--   Frontend API calls to `/api/*` are proxied to the backend. This is typically configured in `vite.config.js` if not already handled by deploying both to the same domain or using CORS. (Note: Current setup relies on CORS middleware on the backend and direct API calls from frontend.)
+## Learn More
 
-This README provides a basic guide to get the project running.
+- [Vite Documentation](https://vitejs.dev/guide/)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+
+This is a minimal setup to get React working in Vite with HMR and some ESLint rules.
